@@ -7,11 +7,12 @@ The core idea behind the Eigenface approach is to decompose face images into a s
 ## Table of Contents
 1. [Motivation](#motivation)
 2. [Project Details](#project-details)
-   - [Technologies Used](#technologies-used)
-   - [Behaviour Algorithms](#behaviour-algorithms)
-3. [Limitations](#limitations)
-4. [Future Scope](#future-scope)
-5. [Conclusion](#conclusion)
+   - [Architecture and Components](#Architecture-and-Components)
+3. [Features](#Features)
+   - [Mathematical Foundations](#Mathematical-Foundations)
+5. [Limitations](#Limitations)
+6. [Future Scope](#future-scope)
+7. [Conclusion](#conclusion)
 
 ## Motivation
 With the growing reliance on digital authentication and the increasing need for secure and user-friendly identification methods, biometric authentication has become essential. Traditional methods like passwords and access cards have significant drawbacks, such as being vulnerable to theft, duplication, and security breaches. In contrast, biometric systems offer a more reliable solution by utilizing unique human traits that are difficult to replicate.The face is one of the most acceptable objects for biometrics study and it has also been
@@ -50,7 +51,33 @@ The system is built with a modular architecture, consisting of preprocessing, fe
 **Adaptability and Update Capability:** Supports the addition of new face images and recalculation of eigenfaces to keep the system current and accurate.<br />
 **User-Friendly Results:** Provides clear pass/fail results based on match scores, making it straightforward for users to understand authentication outcomes.
 
-## Mathematical Foundations
+### Mathematical Foundations
 **Principal Component Analysis (PCA):** Utilizes PCA to reduce dimensionality and compute eigenfaces, which represent the key facial features.<br />
 **Distance Metrics:** Measures the Euclidean distance between feature vectors to evaluate and match facial features effectively.
 
+## Limitations
+- **1. Sensitivity to Head Scale:** The eigenfaces-based approach can be sensitive to variations in head scale. This means that the algorithm may struggle with face images where the subject's head size significantly deviates from the scale of the training images.
+
+- **2. Front View Limitation:** The current implementation is effective only for frontal face views. It may not perform well with images of faces captured from different angles or with significant head tilts.
+
+- **3. Controlled Background Requirement:** The algorithm's performance is optimized for controlled environments with uniform backgrounds. In natural or cluttered scenes, where background variations are significant, the recognition accuracy may decrease.
+
+- **4. Image Quality Dependency:** The quality of the input images affects the preprocessing and feature extraction processes. Poor image quality, such as low resolution or excessive noise, can impact the accuracy of face recognition.
+
+- **5. Limited Emotion and Intent Recognition:** While the current system focuses on face recognition, it does not address advanced applications such as emotion, mood, or intention interpretation, which require more complex analysis.
+
+## Future Scope
+- **1. Enhanced Scale Invariance:** Future work could involve developing algorithms that are robust to variations in head scale and size, potentially incorporating techniques such as image normalization or multi-scale analysis.
+
+- **2. Angle and Pose Robustness:** Extending the algorithm to handle various head poses and angles, including profile and semi-profile views, would improve its applicability in diverse real-world scenarios.
+
+- **3. Background Adaptation:** Implementing background subtraction and segmentation techniques could enhance the system's performance in uncontrolled or dynamic environments, making it more versatile.
+
+- **4. Integration of Advanced Features:** Incorporating emotion and mood recognition by extending the system to analyze facial expressions and other cues could provide more nuanced understanding of users' states.
+
+- **5. Improved Image Quality Handling:** Developing methods to preprocess and enhance low-quality images could improve the system's robustness and reliability in less-than-ideal conditions.
+
+- **6. Real-Time Processing:** Optimization for real-time processing and integration with advanced hardware, such as smartphones and automotive systems, could expand the system’s practical applications.
+
+## Conclusion
+The eigenfaces-based face recognition system demonstrates a practical and efficient approach to biometric authentication. Its simplicity and ease of implementation make it an attractive solution for many applications. The use of PCA to project face images into a lower-dimensional 'face space' allows for effective recognition based on facial features. Despite its strengths, the system has limitations including sensitivity to head scale, applicability to only front views, and performance challenges in uncontrolled backgrounds. Addressing these limitations through future research and development can significantly enhance the system’s robustness and versatility. With advancements in image sensors and processing technology, the potential for integrating this face recognition system into various applications—ranging from mobile devices to automotive safety—is promising. As the field of biometrics continues to evolve, incorporating additional features and improving adaptability will be key to meeting the growing demands for accurate and secure user authentication.
